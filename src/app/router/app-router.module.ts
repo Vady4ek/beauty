@@ -11,6 +11,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'auth',
+    loadComponent: () =>
+      import('src/app/layouts/auth/auth.component').then(
+        (c) => c.AuthComponent
+      ),
+  },
+  {
     path: '**',
     loadComponent: () =>
       import('src/app/layouts/empty/empty.component').then(

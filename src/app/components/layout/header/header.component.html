@@ -1,1 +1,49 @@
-<p>header works!</p>
+<header class="header">
+  <div class="header__container">
+    <a class="header__logo" routerLink="/">
+      <div class="header__logo-image">
+        <img src="assets/icons/logo.png" alt="logo">
+      </div>
+      <div class="header__logo-text">
+        <div class="header__logo-name">PowerBeauty</div>
+        <div class="header__logo-label">Beauty is our duty</div>
+      </div>
+    </a>
+    <div class="header__right">
+      <nav class="header__navigation">
+        <ul class="header__list">
+          <li class="header__item">
+            <a class="header__link">Help</a>
+          </li>
+          <li class="header__item">
+            <a class="header__link">Orders</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header__account">
+        <div class="header__avatar">
+          <div *ngIf="user.avatarUrl; then avatar else initials"></div>
+          <ng-template #avatar>
+            <img *ngIf="user.avatarUrl" [src]="user.avatarUrl" alt="avatar">
+          </ng-template>
+          <ng-template #initials>
+            <span>{{ user.name.slice(0, 1) }}{{ user.surname.slice(0, 1) }}</span>
+          </ng-template>
+        </div>
+        <div class="header__registration">
+          <button class="header__registration-button" type="button">Salon Registration</button>
+          <nav class="header__auth">
+            <ul class="header__auth-list">
+              <li class="header__auth-item">
+                <a class="header__auth-link" routerLink="">Sign In</a>
+              </li>
+              <li class="header__auth-item">
+                <a class="header__auth-link" routerLink="">Register</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

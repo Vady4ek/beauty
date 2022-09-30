@@ -6,6 +6,8 @@
  body {
    margin: 0;
    color: $default;
+   font-family: 'Abel', sans-serif;
+   font-size: 16px;
  }
 
  main {
@@ -29,7 +31,12 @@
  }
 
  a {
+   text-decoration: none;
    background-color: transparent;
+
+   &:visited {
+     color: inherit;
+   }
  }
 
  abbr[title] {
@@ -178,4 +185,9 @@
 
  [hidden] {
    display: none;
+ }
+
+ ul,
+ ol {
+   list-style: none;
  }
