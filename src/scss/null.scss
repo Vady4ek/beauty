@@ -109,6 +109,8 @@
  [type="reset"],
  [type="submit"] {
    -webkit-appearance: button;
+   border: none;
+   background-color: transparent;
  }
 
  button::-moz-focus-inner,

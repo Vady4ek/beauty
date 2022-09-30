@@ -1,6 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { HashStringService } from 'src/app/store/hash-string.service';
 
 @Component({
   standalone: true,
@@ -10,13 +11,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  user = {
-    name: 'Radu',
-    surname: 'Fotescu',
+  public user = {
+    name: 'Ruslan',
+    surname: 'Filip',
     avatarUrl: undefined,
+    // avatarUrl: 'assets/images/user.jpg',
   };
 
-  constructor() {}
+  public avatarColor!: string;
 
-  ngOnInit(): void {}
+  constructor(private hashString: HashStringService) {}
+
+  ngOnInit(): void {
+    if (!this.user.avatarUrl) {
+      const str = `${this.user.name}${this.user.surname}`;
+
+      this.avatarColor = this.hashString.getHSL(str);
+    }
+  }
 }

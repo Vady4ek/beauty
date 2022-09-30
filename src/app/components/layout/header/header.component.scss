@@ -66,20 +66,59 @@
     letter-spacing: -0.03em;
   }
 
-  &__account {}
+  &__account {
+    display: flex;
+  }
 
-  &__avatar {}
+  &__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  &__registration {}
+    letter-spacing: -0.03em;
+    color: $white;
 
-  &__registration-button {}
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 
-  &__auth {}
+  &__registration {
+    position: relative;
+  }
+
+  &__registration-button {
+    letter-spacing: -0.02em;
+    font-size: 14px;
+    color: $black;
+    display: flex;
+    align-items: center;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 12px;
+      height: 6px;
+      background-image: '/assets/icons/headerArrow.svg';
+      background-size: 100%;
+      background-position: left top;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__auth {
+    position: absolute;
+  }
 
   &__auth-list {}
 
   &__auth-item {}
 
-  &__auth-link {} 
+  &__auth-link {}
 
 }

@@ -21,7 +21,7 @@
         </ul>
       </nav>
       <div class="header__account">
-        <div class="header__avatar">
+        <div class="header__avatar" [style.backgroundColor]="avatarColor">
           <div *ngIf="user.avatarUrl; then avatar else initials"></div>
           <ng-template #avatar>
             <img *ngIf="user.avatarUrl" [src]="user.avatarUrl" alt="avatar">
