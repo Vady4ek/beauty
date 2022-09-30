@@ -55,6 +55,38 @@ const routes = [
     ],
   },
   {
+    path: 'help',
+    loadComponent: () =>
+      import('src/app/layouts/default/default.component').then(
+        (c) => c.DefaultComponent
+      ),
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('src/app/pages/help/help.component').then(
+            (c) => c.HelpComponent
+          ),
+      },
+    ],
+  },
+  {
+    path: 'orders',
+    loadComponent: () =>
+      import('src/app/layouts/default/default.component').then(
+        (c) => c.DefaultComponent
+      ),
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('src/app/pages/orders/orders.component').then(
+            (c) => c.OrdersComponent
+          ),
+      },
+    ],
+  },
+  {
     path: '**',
     loadComponent: () =>
       import('src/app/layouts/empty/empty.component').then(
