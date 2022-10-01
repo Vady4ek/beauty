@@ -2,11 +2,15 @@
 
 .header {
   position: relative;
-  z-index: 1;
+  width: 100%;
   height: 90px;
+  z-index: 1;
   background-color: $white;
+  display: flex;
+  align-items: center;
 
   &__container {
+    flex: 1 1 auto;
     max-width: 1610px;
     margin: 0 auto;
 
@@ -50,24 +54,80 @@
 
   &__right {
     display: flex;
-    // align-items: center;
+    align-items: center;
   }
 
-  &__navigation {}
+  &__navigation {
+    margin-right: 25px;
+    padding-right: 25px;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 1px;
+      height: 16px;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: $gray;
+    }
+  }
 
   &__list {
     display: flex;
   }
 
-  &__item {}
+  &__item {
+    &:not(:first-child) {
+      margin-left: 52px;
+    }
+  }
 
   &__link {
     color: $black;
     letter-spacing: -0.03em;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 1px;
+      background-color: $gray;
+      transition-property: width;
+      transition-duration: .4s;
+      pointer-events: none;
+    }
+
+    &:before {
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -12px;
+    }
+
+
+    &:hover {
+      &::before {
+        width: 82px;
+      }
+    }
+
+    &_active {
+      color: $violet;
+
+      &::before {
+        width: 82px;
+        background-color: $violet;
+      }
+    }
   }
 
   &__account {
     display: flex;
+    align-items: center;
   }
 
   &__avatar {
@@ -90,6 +150,7 @@
 
   &__registration {
     position: relative;
+    margin-left: 8px;
   }
 
   &__registration-button {
@@ -98,27 +159,71 @@
     color: $black;
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 1;
 
     &::after {
       content: "";
       display: block;
       width: 12px;
       height: 6px;
-      background-image: '/assets/icons/headerArrow.svg';
-      background-size: 100%;
-      background-position: left top;
+      background-image: url('/assets/icons/headerArrow.svg');
+      background-size: contain;
       background-repeat: no-repeat;
+      margin-left: 15px;
+      transition-duration: .4s;
+    }
+
+    &.open {
+      &::after {
+        transform: rotate(180deg);
+      }
     }
   }
 
   &__auth {
     position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0%;
+    background-color: $white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transition-duration: .4s;
+    transition-property: opacity, top;
+
+    &.open {
+      pointer-events: all;
+      top: calc(100% + 10px);
+      opacity: 1;
+    }
   }
 
-  &__auth-list {}
+  &__auth-list {
+    padding: 15px 0;
+  }
 
-  &__auth-item {}
+  &__auth-item {
+    color: $black;
+    padding: 5px 15px;
+    transition-property: background-color, color;
+    transition-duration: .4s;
 
-  &__auth-link {}
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+
+    &:hover {
+      background-color: $violet;
+      color: $white;
+    }
+  }
+
+  &__auth-link {
+    color: inherit;
+    letter-spacing: -0.03em;
+  }
 
 }

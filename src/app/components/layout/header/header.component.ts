@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   };
 
   public avatarColor!: string;
+  public authOpen = false;
 
   constructor(private hashString: HashStringService) {}
 
@@ -28,5 +29,9 @@ export class HeaderComponent implements OnInit {
 
       this.avatarColor = this.hashString.getHSL(str);
     }
+  }
+
+  toggleAuth() {
+    this.authOpen = !this.authOpen;
   }
 }

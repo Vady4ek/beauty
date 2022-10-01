@@ -1,6 +1,6 @@
 <header class="header">
   <div class="header__container">
-    <a class="header__logo" routerLink="">
+    <a class="header__logo" routerLink="/">
       <div class="header__logo-image">
         <img src="assets/icons/logo.png" alt="logo">
       </div>
@@ -13,10 +13,12 @@
       <nav class="header__navigation">
         <ul class="header__list">
           <li class="header__item">
-            <a class="header__link" routerLink="/help">Help</a>
+            <a class="header__link" routerLink="/help" routerLinkActive="header__link_active"
+              [routerLinkActiveOptions]="{exact: true}">Help</a>
           </li>
           <li class="header__item">
-            <a class="header__link" routerLink="/orders">Orders</a>
+            <a class="header__link" routerLink="/orders" routerLinkActive="header__link_active"
+              [routerLinkActiveOptions]="{exact: true}">Orders</a>
           </li>
         </ul>
       </nav>
@@ -31,8 +33,10 @@
           </ng-template>
         </div>
         <div class="header__registration">
-          <button class="header__registration-button" type="button">Salon Registration</button>
-          <nav class="header__auth">
+          <button class="header__registration-button" [class.open]="authOpen" (click)="toggleAuth()" type="button">
+            Salon Registration
+          </button>
+          <nav class="header__auth" [class.open]="authOpen">
             <ul class="header__auth-list">
               <li class="header__auth-item">
                 <a class="header__auth-link" routerLink="/auth">Sign In</a>
