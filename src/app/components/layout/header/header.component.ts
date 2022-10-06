@@ -1,7 +1,8 @@
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { HashStringService } from 'src/app/store/hash-string.service';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -9,6 +10,12 @@ import { HashStringService } from 'src/app/store/hash-string.service';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  animations: [
+    trigger('slideToggle', [
+      transition(':enter', [style({ height: 0 }), animate(400)]),
+      transition(':leave', [animate(400, style({ height: 0 }))]),
+    ]),
+  ],
 })
 export class HeaderComponent implements OnInit {
   public user = {
@@ -20,6 +27,7 @@ export class HeaderComponent implements OnInit {
 
   public avatarColor!: string;
   public authOpen = false;
+  public burgerOpen = false;
 
   constructor(private hashString: HashStringService) {}
 
@@ -33,5 +41,9 @@ export class HeaderComponent implements OnInit {
 
   toggleAuth() {
     this.authOpen = !this.authOpen;
+  }
+
+  toggleBurger() {
+    this.burgerOpen = !this.burgerOpen;
   }
 }

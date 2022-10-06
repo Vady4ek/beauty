@@ -4,6 +4,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes = [
   {
@@ -100,5 +101,5 @@ if (environment.production) {
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [importProvidersFrom(RouterModule.forRoot(routes))],
+  providers: [importProvidersFrom(BrowserAnimationsModule, RouterModule.forRoot(routes))],
 }).catch((err) => console.error(err));

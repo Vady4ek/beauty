@@ -42,12 +42,48 @@
                 <a class="header__auth-link" routerLink="/auth">Sign In</a>
               </li>
               <li class="header__auth-item">
-                <a class="header__auth-link" routerLink="/auth">Register</a>
+                <a class="header__auth-link" routerLink="/auth">Get started</a>
               </li>
             </ul>
           </nav>
         </div>
       </div>
+      <button class="header__burger" [class.open]="burgerOpen" (click)="toggleBurger()" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </div>
 </header>
+<div class="burger" [class.open]="burgerOpen">
+  <nav class="burger__navigation">
+    <ul class="burger__list">
+      <li class="burger__item">
+        <a class="burger__link" routerLink="/help" routerLinkActive="header__link_active"
+          [routerLinkActiveOptions]="{exact: true}">Help</a>
+      </li>
+      <li class="burger__item">
+        <a class="burger__link" routerLink="/orders" routerLinkActive="header__link_active"
+          [routerLinkActiveOptions]="{exact: true}">Orders</a>
+      </li>
+      <li class="burger__item">
+        <button class="burger__button" [class.open]="authOpen" (click)="toggleAuth()"><span>Salon Registration</span></button>
+        <div class="burger__sub-navigation" *ngIf="authOpen" @slideToggle>
+          <ul class="burger__sub-list">
+            <li class="burger__item">
+              <a class="burger__link" routerLink="/auth">Sign In</a>
+            </li>
+            <li class="burger__item">
+              <a class="burger__link" routerLink="/auth">Get started</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="burger__item">
+        <a class="burger__link" routerLink="/Example" routerLinkActive="header__link_active"
+          [routerLinkActiveOptions]="{exact: true}">Example</a>
+      </li>
+    </ul>
+  </nav>
+</div>
