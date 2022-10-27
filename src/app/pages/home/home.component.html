@@ -1,25 +1,36 @@
 <section class="home">
   <div class="home__accordion">
+    <div class="home__tab" *ngFor="let item of items; let first = first">
+      <app-tab name="{{ item.title }}" [isOpen]="first" (closeTabs)="closeTabs()">
+        <div class="home__list">
+          <app-list [items]="item.items"></app-list>
+        </div>
+      </app-tab>
+    </div>
+  </div>
+</section>
+<!-- <section class="home">
+  <div class="home__accordion">
     <div class="home__tab">
-      <app-tab name="Services" [initialOpen]="true" [isOpen]="tabIsOpen" (clickTab)="clickTab($event)">
+      <app-tab name="Services" [isOpen]="true" (closeTabs)="closeTabs()">
         <div class="home__list">
           <app-list [items]="serviceItems"></app-list>
         </div>
       </app-tab>
     </div>
     <div class="home__tab">
-      <app-tab name="Products" [isOpen]="tabIsOpen" (clickTab)="clickTab($event)">
+      <app-tab name="Products" (closeTabs)="closeTabs()">
         <div class="home__list">
           <app-list [items]="productItems"></app-list>
         </div>
       </app-tab>
     </div>
     <div class="home__tab">
-      <app-tab name="Masters" [isOpen]="tabIsOpen" (clickTab)="clickTab($event)">
+      <app-tab name="Masters"(closeTabs)="closeTabs()">
         <div class="home__list">
           <app-list [items]="masterItems"></app-list>
         </div>
       </app-tab>
     </div>
   </div>
-</section>
+</section> -->

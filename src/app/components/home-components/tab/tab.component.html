@@ -1,5 +1,5 @@
 <div class="tab">
-  <button class="tab__button" (click)="toggleTab()" type="button">
+  <button class="tab__button" (click)="isOpen ? close() : open()" type="button">
     <span class="tab__name">{{ name }}</span>
     <img class="tab__icon" [class.open]="isOpen" src="assets/icons/homeTabArrow.svg" alt="arrow">
   </button>

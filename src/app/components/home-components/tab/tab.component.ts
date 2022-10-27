@@ -1,7 +1,6 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { AccordionService } from 'src/app/store/accordion.service';
 
 @Component({
   selector: 'app-tab',
@@ -11,34 +10,27 @@ import { AccordionService } from 'src/app/store/accordion.service';
   styleUrls: ['./tab.component.scss'],
   animations: [
     trigger('slideToggle', [
-      transition(':enter', [style({ height: 0 }), animate(400)]),
-      transition(':leave', [animate(400, style({ height: 0 }))]),
+      transition(':enter', [style({ height: 0 }), animate('400ms ease')]),
+      transition(':leave', [animate('400ms ease', style({ height: 0 }))]),
     ]),
   ],
 })
 export class TabComponent implements OnInit {
-  @Input() name: string = '';
-  @Input() initialOpen: boolean = false;
+  @Input() name = '';
   @Input() isOpen = false;
-  @Output() clickTab: EventEmitter<boolean> = new EventEmitter();
 
-  constructor(private accordionService: AccordionService) {}
+  @Output() closeTabs: EventEmitter<boolean> = new EventEmitter();
 
-  ngOnInit(): void {
-    this.isOpen = this.initialOpen;
+  constructor() { }
 
-    this.accordionService.accordionSubject.subscribe(
-      {
-        // next: (n) => 
-      }
-    );
+  ngOnInit(): void { }
+
+  close() {
+    this.isOpen = false;
   }
 
-  toggleTab() {
-    this.isOpen = !this.isOpen;
-
-    if (this.isOpen) {
-      this.accordionService.accordionSubject.next(true);
-    }
+  open() {
+    this.closeTabs.emit();
+    this.isOpen = true;
   }
 }
