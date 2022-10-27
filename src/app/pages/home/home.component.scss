@@ -1,0 +1,14 @@
+.home {
+  margin-top: 127px;
+  padding: 0 80px 0 90px;
+
+  &__accordion {}
+
+  &__tab {
+    &:not(:last-child) {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__list {}
+}

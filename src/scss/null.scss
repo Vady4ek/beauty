@@ -1,8 +1,13 @@
+@import "./variables.scss";
+
 * {
   box-sizing: border-box;
 }
 
-a, button, input, textarea {
+a,
+button,
+input,
+textarea {
   transition-duration: .3s;
   transition-property: box-shadow;
   border-radius: 5px;
@@ -10,7 +15,7 @@ a, button, input, textarea {
 
 *:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(82, 85, 200, .3);
+  box-shadow: 0 0 0 3px $focus;
 }
 
 html {
@@ -20,9 +25,13 @@ html {
 
 body {
   margin: 0;
-  color: rgba(0, 0, 0, 0.96);
+  color: $default;
   font-family: 'Abel', sans-serif;
   font-size: 16px;
+
+  &.scroll-lock {
+    overflow-y: hidden;
+  }
 }
 
 main {
@@ -210,5 +219,14 @@ ul,
 ol {
   list-style: none;
   padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h2,
+h4,
+h5,
+h5 {
   margin: 0;
 }

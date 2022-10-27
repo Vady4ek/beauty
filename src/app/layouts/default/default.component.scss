@@ -6,6 +6,11 @@
   flex-direction: column;
 }
 
+.header {
+  position: relative;
+  z-index: 5;
+}
+
 .main {
   flex: 1 1 auto;
   background-color: $background;

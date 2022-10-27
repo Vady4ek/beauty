@@ -1,1 +1,25 @@
-<p>Home works!</p>
+<section class="home">
+  <div class="home__accordion">
+    <div class="home__tab">
+      <app-tab name="Services" [initialOpen]="true" [isOpen]="tabIsOpen" (clickTab)="clickTab($event)">
+        <div class="home__list">
+          <app-list [items]="serviceItems"></app-list>
+        </div>
+      </app-tab>
+    </div>
+    <div class="home__tab">
+      <app-tab name="Products" [isOpen]="tabIsOpen" (clickTab)="clickTab($event)">
+        <div class="home__list">
+          <app-list [items]="productItems"></app-list>
+        </div>
+      </app-tab>
+    </div>
+    <div class="home__tab">
+      <app-tab name="Masters" [isOpen]="tabIsOpen" (clickTab)="clickTab($event)">
+        <div class="home__list">
+          <app-list [items]="masterItems"></app-list>
+        </div>
+      </app-tab>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,34 @@
+.tab {
+  &__button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__name {
+    letter-spacing: -0.03em;
+    font-size: 30px;
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    transition-duration: .4s;
+    transform: rotate(-180deg);
+    
+    &.open {
+      transform: rotate(0);
+    }
+  }
+
+  &__body {
+    margin-top: 48px;
+    overflow: hidden;
+  }
+
+  &__inner {
+    padding-left: 22px;
+  }
+}

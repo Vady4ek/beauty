@@ -10,5 +10,5 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'BeautySalon2';
+  title = 'BeautySalon';
 }

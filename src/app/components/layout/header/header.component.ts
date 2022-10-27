@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { HashStringService } from 'src/app/store/hash-string.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { RouterModule } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   standalone: true,
@@ -29,7 +30,10 @@ export class HeaderComponent implements OnInit {
   public authOpen = false;
   public burgerOpen = false;
 
-  constructor(private hashString: HashStringService) {}
+  constructor(
+    private hashString: HashStringService,
+    @Inject(DOCUMENT) private document: Document
+  ) { }
 
   ngOnInit(): void {
     if (!this.user.avatarUrl) {
@@ -45,5 +49,11 @@ export class HeaderComponent implements OnInit {
 
   toggleBurger() {
     this.burgerOpen = !this.burgerOpen;
+
+    if(this.burgerOpen) {
+      this.document.body.classList.add('scroll-lock');
+    } else {
+      this.document.body.classList.remove('scroll-lock');
+    }
   }
 }

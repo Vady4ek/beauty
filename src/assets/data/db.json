@@ -1,0 +1,300 @@
+{ 
+  "categories": [
+    {
+      "name": "hair",
+      "category_id": 1
+    },
+    {
+      "name": "nails",
+      "category_id": 2
+    },
+    {
+      "name": "beard",
+      "category_id": 3
+    },
+    {
+      "name": "skin",
+      "category_id": 4
+    }
+  ],
+  "jobs": [
+    {
+      "master_id": 11,
+      "service_id": 1
+    },
+    {
+      "master_id": 5,
+      "service_id": 1
+    },
+    {
+      "master_id": 2,
+      "service_id": 2
+    },
+    {
+      "master_id": 1,
+      "service_id": 3
+    },
+    {
+      "master_id": 3,
+      "service_id": 3
+    },
+    {
+      "master_id": 6,
+      "service_id": 4
+    },
+    {
+      "master_id": 10,
+      "service_id": 5
+    },
+    {
+      "master_id": 5,
+      "service_id": 6
+    },
+    {
+      "master_id": 7,
+      "service_id": 7
+    },
+    {
+      "master_id": 9,
+      "service_id": 8
+    },
+    {
+      "master_id": 8,
+      "service_id": 9
+    },
+    {
+      "master_id": 4,
+      "service_id": 10
+    },
+    {
+      "master_id": 11,
+      "service_id": 11
+    }
+  ],
+  "services": [
+    {
+      "name": "Hair woman",
+      "imageUrl": "assets/images/hair.png",
+      "alt": "hair",
+      "price": 350,
+      "service_id": 1,
+      "category_id": 1
+    },
+    {
+      "name": "Nails",
+      "imageUrl": "assets/images/nails.png",
+      "alt": "nails",
+      "price": 250,
+      "service_id": 2,
+      "category_id": 2
+    },
+    {
+      "name": "Barber",
+      "imageUrl": "assets/images/barber.png",
+      "alt": "barber",
+      "price": 1200,
+      "service_id": 3,
+      "category_id": 3
+    },
+    {
+      "name": "Skin masage",
+      "imageUrl": "assets/images/nails.png",
+      "alt": "nails",
+      "price": 50,
+      "service_id": 4,
+      "category_id": 4
+    },
+    {
+      "name": "Hair dye",
+      "imageUrl": "assets/images/barber.png",
+      "alt": "barber",
+      "price": 105,
+      "service_id": 5,
+      "category_id": 1
+    },
+    {
+      "name": "Nails growth",
+      "imageUrl": "assets/images/nails.png",
+      "alt": "nails",
+      "price": 120,
+      "service_id": 6,
+      "category_id": 2
+    },
+    {
+      "name": "Beard shaving",
+      "imageUrl": "assets/images/nails.png",
+      "alt": "nails",
+      "price": 340,
+      "service_id": 7,
+      "category_id": 3
+    },
+    {
+      "name": "Skin",
+      "imageUrl": "assets/images/barber.png",
+      "alt": "barber",
+      "price": 180,
+      "service_id": 8,
+      "category_id": 4
+    },
+    {
+      "name": "Hair man",
+      "imageUrl": "assets/images/barber.png",
+      "alt": "barber",
+      "price": 140,
+      "service_id": 9,
+      "category_id": 1
+    },
+    {
+      "name": "Nails paint",
+      "imageUrl": "assets/images/nails.png",
+      "alt": "nails",
+      "price": 60,
+      "service_id": 10,
+      "category_id": 2
+    },
+    {
+      "name": "Beard",
+      "imageUrl": "assets/images/barber.png",
+      "alt": "barber",
+      "price": 200,
+      "service_id": 11,
+      "category_id": 3
+    }
+  ],
+  "products": [
+    {
+      "name": "Hair dye",
+      "imageUrl": "assets/images/barber.png",
+      "alt": "barber",
+      "product_id": 1
+    },
+    {
+      "name": "Hand cream",
+      "imageUrl": "assets/images/nails.png",
+      "alt": "nails",
+      "product_id": 2
+    },
+    {
+      "name": "Face cream",
+      "imageUrl": "assets/images/barber.png",
+      "alt": "barber",
+      "product_id": 3
+    },
+    {
+      "name": "Product",
+      "imageUrl": "assets/images/nails.png",
+      "alt": "nails",
+      "product_id": 4
+    },
+    {
+      "name": "Product",
+      "imageUrl": "assets/images/barber.png",
+      "alt": "barber",
+      "product_id": 5
+    },
+    {
+      "name": "Product",
+      "imageUrl": "assets/images/nails.png",
+      "alt": "nails",
+      "product_id": 6
+    },
+    {
+      "name": "Product",
+      "imageUrl": "assets/images/nails.png",
+      "alt": "nails",
+      "product_id": 7
+    },
+    {
+      "name": "Product",
+      "imageUrl": "assets/images/barber.png",
+      "alt": "barber",
+      "product_id": 8
+    },
+    {
+      "name": "Product",
+      "imageUrl": "assets/images/barber.png",
+      "alt": "barber",
+      "product_id": 9
+    },
+    {
+      "name": "Product",
+      "imageUrl": "assets/images/nails.png",
+      "alt": "nails",
+      "product_id": 10
+    },
+    {
+      "name": "Product",
+      "imageUrl": "assets/images/barber.png",
+      "alt": "barber",
+      "product_id": 11
+    }
+  ],
+  "masters": [
+    {
+      "name": "Ana Maria",
+      "imageUrl": "assets/images/hair.png",
+      "alt": "hair",
+      "master_id": 1
+    },
+    {
+      "name": "Ion Creanga",
+      "imageUrl": "assets/images/nails.png",
+      "alt": "nails",
+      "master_id": 2
+    },
+    {
+      "name": "Mihai Eminescu",
+      "imageUrl": "assets/images/barber.png",
+      "alt": "barber",
+      "master_id": 3
+    },
+    {
+      "name": "Vasile Alecsandri",
+      "imageUrl": "assets/images/nails.png",
+      "alt": "nails",
+      "master_id": 4
+    },
+    {
+      "name": "Master hair woman 1",
+      "imageUrl": "assets/images/barber.png",
+      "alt": "barber",
+      "master_id": 5
+    },
+    {
+      "name": "Master",
+      "imageUrl": "assets/images/nails.png",
+      "alt": "nails",
+      "master_id": 6
+    },
+    {
+      "name": "Master",
+      "imageUrl": "assets/images/nails.png",
+      "alt": "nails",
+      "master_id": 7
+    },
+    {
+      "name": "Master",
+      "imageUrl": "assets/images/barber.png",
+      "alt": "barber",
+      "master_id": 8
+    },
+    {
+      "name": "Master",
+      "imageUrl": "assets/images/barber.png",
+      "alt": "barber",
+      "master_id": 9
+    },
+    {
+      "name": "Master",
+      "imageUrl": "assets/images/nails.png",
+      "alt": "nails",
+      "master_id": 10
+    },
+    {
+      "name": "Master hair woman 2",
+      "imageUrl": "assets/images/barber.png",
+      "alt": "barber",
+      "master_id": 11
+    }
+  ]
+}
