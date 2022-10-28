@@ -18,27 +18,21 @@ import { Item } from 'src/ts/interfaces/index';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
+
 export class HomeComponent implements OnInit {
   @ViewChildren(TabComponent) tabs: TabComponent[] = [];
 
-  public items: any = [
+  public items: {tabItems?: Item[], title: string}[] = [
     {
-      items: null,
       title: 'Services'
     },
     {
-      items: null,
       title: 'Products'
     },
     {
-      items: null,
       title: 'Masters'
     }
   ];
-
-  public serviceItems!: Item[];
-  public productItems!: Item[];
-  public masterItems!: Item[];
 
   constructor(
     private getServices: GetServicesService,
@@ -48,17 +42,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getServices.service.subscribe({
-      next: (n) => (this.items[0].items = n),
+      next: (n) => (this.items[0].tabItems = n),
       error: (e) => console.error(e.message),
     });
 
     this.getProducts.product.subscribe({
-      next: (n) => (this.items[1].items = n),
+      next: (n) => (this.items[1].tabItems = n),
       error: (e) => console.error(e.message),
     });
 
     this.getMasters.master.subscribe({
-      next: (n) => (this.items[2].items = n),
+      next: (n) => (this.items[2].tabItems = n),
       error: (e) => console.error(e.message),
     });
   }

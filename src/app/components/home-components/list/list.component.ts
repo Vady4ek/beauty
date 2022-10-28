@@ -11,7 +11,7 @@ import { ItemComponent } from 'src/app/components/home-components/item/item.comp
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  @Input() items!: Item[];
+  @Input() items!: Item[] | undefined;
 
   constructor() { }
 
