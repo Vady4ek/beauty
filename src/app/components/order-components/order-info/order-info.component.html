@@ -1,1 +1,20 @@
-<p>order-info works!</p>
+<form action="" [formGroup]="orderInfoForm">
+
+    <input formControlName="category" (input)="changeFormData()" type="text">
+    
+    <input formControlName="service" (input)="changeFormData()" type="text">
+    
+    <input formControlName="master" (input)="changeFormData()" type="text">
+    
+    <input formControlName="date" (input)="changeFormData()" type="text">
+    
+    <input formControlName="time" (input)="changeFormData()" type="text">
+    
+    <input type="text">
+    
+    <input formControlName="currency" (input)="changeFormData()" type="text">
+
+</form>
+
+
+<button (click)="next.emit()">Next</button>
