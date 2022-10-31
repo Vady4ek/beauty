@@ -1,23 +1,47 @@
-<div class="input">
+<ng-container *ngIf="textArea; then templateTextArea else templateInput"></ng-container>
+
+<ng-template #templateInput>
+  <div class="input">
+      <label 
+        *ngIf="placeholder"
+        class="input__placeholder" 
+        [innerText]="placeholder"
+        [class.visible]="placeholderVisible && !value"
+      >
+      </label>
+      <input
+        class="input__body"
+        [type]="type"
+        [disabled]="isDisabled"
+        (focus)="onFocus()"
+        (blur)="onBlur()"
+        (input)="onInput()"
+        [mask]="maskData"
+        [prefix]="prefixData"
+        [showMaskTyped]="typedData"
+        [class.error]="hasError"
+        [dropSpecialCharacters]="dropSpecialCharacters"
+        [(ngModel)]="value"
+      >
+  </div>
+</ng-template>
+<ng-template #templateTextArea>
+  <div class="input">
     <label 
       *ngIf="placeholder"
-      class="input__placeholder" 
+      class="input__placeholder input__placeholder_top" 
       [innerText]="placeholder"
       [class.visible]="placeholderVisible && !value"
     >
     </label>
-    <input
-      class="input__body"
-      [type]="type"
+    <textarea
+      class="input__body input__body_big"
       [disabled]="isDisabled"
       (focus)="onFocus()"
       (blur)="onBlur()"
       (input)="onInput()"
-      [mask]="maskData"
-      [prefix]="prefixData"
-      [showMaskTyped]="typedData"
       [class.error]="hasError"
-      [dropSpecialCharacters]="dropSpecialCharacters"
       [(ngModel)]="value"
-    >
+    ></textarea>
 </div>
+</ng-template>

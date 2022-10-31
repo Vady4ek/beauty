@@ -67,8 +67,8 @@
                 <div class="item__hint"></div>
             </div>
             <div class="item__body">
-                <app-order-input [placeholder]="'Add some comments'" [dropSpecialCharacters]="false"
-                    formControlName="comments" (dataChange)="changeFormData()">
+                <app-order-input [placeholder]="'Add some comments'" [textArea]="true" formControlName="comments"
+                    (dataChange)="changeFormData()">
                 </app-order-input>
             </div>
         </div>
@@ -77,7 +77,8 @@
                 <app-order-button (click)="prev.emit()" [small]="true" [arrowRight]="false">Back</app-order-button>
             </div>
             <div class="order__button">
-                <app-order-button (click)="onNext()" [disabled]="clientInfoForm.invalid && clientInfoForm.touched">Next step</app-order-button>
+                <app-order-button (click)="onNext()" [disabled]="clientInfoForm.invalid && clientInfoForm.touched">Next
+                    step</app-order-button>
             </div>
         </div>
     </form>

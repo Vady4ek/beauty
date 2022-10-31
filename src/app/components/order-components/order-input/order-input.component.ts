@@ -28,6 +28,7 @@ export class OrderInputComponent implements OnInit, ControlValueAccessor {
   @Input() hasError!: boolean;
   @Input() dropSpecialCharacters = true;
   @Input() isDisabled!: boolean;
+  @Input() textArea = false;
   
   value = '';
   placeholderVisible = false;

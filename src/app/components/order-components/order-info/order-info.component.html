@@ -21,7 +21,7 @@
             <div class="item__body">
                 <app-drop-down [options]="serviceOptions"
                     [hasError]="orderInfoForm.controls['service'].invalid && orderInfoForm.controls['service'].touched"
-                    formControlName="service" (selectOption)="changeFormData()">
+                    formControlName="service" (selectOption)="changeFormData(); setPrice()">
                 </app-drop-down>
             </div>
         </div>
@@ -76,7 +76,7 @@
                     <div class="item__subitem">
                         <app-order-input [placeholder]="'Enter the time'" formControlName="time"
                             [hasError]="orderInfoForm.controls['time'].invalid && orderInfoForm.controls['time'].touched"
-                            (dataChange)="changeFormData()" [maskData]="'Hh:m0'" [dropSpecialCharacters]="false">
+                            (dataChange)="changeFormData(); setTime()" [maskData]="'Hh:m0'" [dropSpecialCharacters]="false">
                         </app-order-input>
                     </div>
                     <div class="item__subitem">

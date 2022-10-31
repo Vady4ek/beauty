@@ -66,8 +66,16 @@ export class OrderInfoComponent implements OnInit {
   onNext() {
     this.orderInfoForm.markAllAsTouched();
 
-    if(this.orderInfoForm.valid) {
+    if (this.orderInfoForm.valid) {
       this.next.emit();
     }
+  }
+
+  setPrice() {
+    this.orderInfoForm.patchValue({ 'price': '100' });
+  }
+
+  setTime() {
+    this.orderInfoForm.patchValue({ 'endTime': '15:00' })
   }
 }
