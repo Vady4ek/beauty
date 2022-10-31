@@ -1,0 +1,39 @@
+.finish {
+    &__container {
+        max-width: 620px;
+        margin: 0 auto;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:not(:last-child) {
+            margin-bottom: 42px;
+        }
+    }
+
+    &__name {
+        font-family: 'Acme', sans-serif;
+        letter-spacing: -0.03em;
+        font-size: 23px;
+    }
+
+    &__value {
+        max-width: 230px;
+        letter-spacing: -0.03em;
+        font-size: 25px;
+    }
+
+    &__buttons {
+        margin-top: 100px;
+        display: flex;
+        justify-content: space-between;
+    }
+}

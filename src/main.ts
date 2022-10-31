@@ -3,6 +3,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxMaskModule } from 'ngx-mask';
 
 import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
@@ -102,5 +103,5 @@ if (environment.production) {
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [importProvidersFrom(BrowserAnimationsModule, RouterModule.forRoot(routes), HttpClientModule)],
+  providers: [importProvidersFrom(BrowserAnimationsModule, RouterModule.forRoot(routes), HttpClientModule, NgxMaskModule.forRoot())],
 }).catch((err) => console.error(err));

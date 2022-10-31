@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { OrderService } from 'src/app/store/order.service';
+import { ModalComponent } from 'src/app/components/layout/modal/modal.component';
 
 @Component({
   standalone: true,
@@ -15,7 +16,8 @@ import { OrderService } from 'src/app/store/order.service';
     ClientInfoComponent,
     OrderInfoComponent,
     AllInfoComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModalComponent
   ],
   providers: [
     OrderService
@@ -26,8 +28,9 @@ import { OrderService } from 'src/app/store/order.service';
 })
 
 export class OrderComponent implements OnInit {
+  public modal = false;
 
-  public step = 1;
+  public step = 2;
 
   constructor(
     private orderService: OrderService
@@ -36,6 +39,17 @@ export class OrderComponent implements OnInit {
   ngOnInit(): void {}
 
   submit() {
-    this.orderService.submit();
+    this.orderService.submit.subscribe({
+      next: (n) => this.modal = true,
+      error: (e) => console.error(e)
+    });
+  }
+
+  next() {
+    this.step++;
+  }
+
+  prev() {
+    this.step--;
   }
 }

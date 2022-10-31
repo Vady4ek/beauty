@@ -1,0 +1,60 @@
+@import "src/scss/variables.scss";
+
+.modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-color: $black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__content {
+        background-color: $white;
+        filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.12));
+        border-radius: 20px;
+        padding: 40px;
+    }
+
+    &__header {
+        text-align: center;
+        color: $violet;
+        letter-spacing: -0.03em;
+        font-size: 24px;
+    }
+
+    &__label {
+        text-align: center;
+        letter-spacing: -0.02em;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+
+    &__links {
+        margin-top: 60px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__link {
+        display: block;
+        width: 135px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        letter-spacing: -0.02em;
+        font-size: 14px;
+        color: $violet;
+        border: 1px solid #5255C8;
+
+        &_violet {
+            background-color: $violet;
+            color: $white;
+        }
+    }
+}

@@ -1,0 +1,98 @@
+@import "src/scss/variables.scss";
+
+.order {
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    &__wrapper {
+      width: 578px;
+    }
+  
+    &__item {
+      margin-bottom: 69px;
+    }
+  
+    &__container {
+      display: flex
+    }
+  
+    &__buttons {
+      display: flex;
+      justify-content: center;
+    }
+  
+    &__button {
+      width: 360px;
+  
+      .image {
+        width: 15px;
+        height: 26px;
+        position: relative;
+  
+        img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+  
+  .item {
+    position: relative;
+  
+    &__info {
+  
+      @media (min-width: 1025px) {
+        position: absolute;
+        width: max-content;
+        right: calc(100% + 16px);
+        top: 8px;
+        text-align: right;
+      }
+  
+    }
+  
+    &__label {
+      letter-spacing: -0.03em;
+    }
+  
+    &__hint {
+      font-size: 12px;
+      color: $black;
+      opacity: 0;
+      pointer-events: none;
+      transition-duration: .4s;
+  
+      &.show {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+  
+    &__body {
+      display: block;
+    }
+  
+    &__container {
+      display: flex;
+    }
+  
+    &__subitem {
+      width: 218px;
+  
+      &_uppercase {
+        text-transform: uppercase;
+      }
+  
+      &:not(:last-child) {
+        margin-right: 16px;
+      }
+    }
+  }

@@ -1,4 +1,4 @@
-{ 
+{
   "categories": [
     {
       "name": "hair",
@@ -295,6 +295,11 @@
       "imageUrl": "assets/images/barber.png",
       "alt": "barber",
       "master_id": 11
+    }
+  ],
+  "orders": [
+    {
+      "id": 1
     }
   ]
 }

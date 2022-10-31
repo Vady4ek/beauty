@@ -1,1 +1,14 @@
-<p>modal works!</p>
+<div class="modal">
+    <div class="modal__content">
+        <div class="modal__header">Order <span>#1234</span> succesfully created</div>
+        <div class="modal__label">Would you like to do next?</div>
+        <div class="modal__links">
+            <a class="modal__link" routerLink="/">
+                <span>Goto main page</span>
+            </a>
+            <button class="modal__link modal__link_violet" (click)="refresh($event)" type="button">
+                <span>Create new order</span>
+            </button>
+        </div>
+    </div>
+</div>

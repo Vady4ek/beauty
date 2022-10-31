@@ -1,0 +1,36 @@
+@import "src/scss/variables.scss";
+
+.order {
+    margin-top: 86px;
+
+    &__container {
+        max-width: 1610px + 30px;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+    }
+
+    &__header {
+        color: $violet;
+        font-size: 48px;
+        letter-spacing: -0.05em;
+        font-weight: 400;
+    }
+
+    &__label {
+        margin-left: 20px;
+        background-color: $yellow;
+        border-radius: 12px;
+        letter-spacing: -0.03em;
+        font-size: 24px;
+        padding: 8px 12px;
+    }
+
+    &__body {
+        margin: 100px 0;
+    }
+}

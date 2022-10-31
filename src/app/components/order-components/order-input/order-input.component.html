@@ -1,0 +1,23 @@
+<div class="input">
+    <label 
+      *ngIf="placeholder"
+      class="input__placeholder" 
+      [innerText]="placeholder"
+      [class.visible]="placeholderVisible && !value"
+    >
+    </label>
+    <input
+      class="input__body"
+      [type]="type"
+      [disabled]="isDisabled"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+      (input)="onInput()"
+      [mask]="maskData"
+      [prefix]="prefixData"
+      [showMaskTyped]="typedData"
+      [class.error]="hasError"
+      [dropSpecialCharacters]="dropSpecialCharacters"
+      [(ngModel)]="value"
+    >
+</div>

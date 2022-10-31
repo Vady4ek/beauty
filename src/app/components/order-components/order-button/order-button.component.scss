@@ -1,0 +1,40 @@
+@import "src/scss/variables.scss";
+
+.button {
+
+    background-color: $white;
+    border-radius: 241.18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 360px;
+    height: 60px;
+    transition-duration: .4s;
+
+    &.small {
+        width: 240px;
+    }
+
+    &:disabled {
+        opacity: 0.8;
+    }
+
+    &__text {
+        letter-spacing: -0.03em;
+        font-size: 24px;
+    }
+
+    &__icon {
+        display: block;
+        width: 15px;
+        height: 26px;
+        object-fit: contain;
+        margin-left: 13px;
+
+        &_reverse {
+            transform: rotate(180deg);
+            margin-left: 0;
+            margin-right: 13px;
+        }
+    }
+}

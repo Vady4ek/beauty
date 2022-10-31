@@ -1,20 +1,115 @@
-<form action="" [formGroup]="orderInfoForm">
-
-    <input formControlName="category" (input)="changeFormData()" type="text">
-    
-    <input formControlName="service" (input)="changeFormData()" type="text">
-    
-    <input formControlName="master" (input)="changeFormData()" type="text">
-    
-    <input formControlName="date" (input)="changeFormData()" type="text">
-    
-    <input formControlName="time" (input)="changeFormData()" type="text">
-    
-    <input type="text">
-    
-    <input formControlName="currency" (input)="changeFormData()" type="text">
-
-</form>
-
-
-<button (click)="next.emit()">Next</button>
+<div class="order__inner">
+    <form class="order__wrapper" [formGroup]="orderInfoForm">
+        <div class="order__item item">
+            <div class="item__info">
+                <label class="item__label">Service category</label>
+                <div class="item__hint"></div>
+            </div>
+            <div class="item__body">
+                <app-drop-down [options]="serviceOptions" formControlName="category" (selectOption)="changeFormData()">
+                </app-drop-down>
+            </div>
+        </div>
+        <div class="order__item item">
+            <div class="item__info">
+                <label class="item__label">Service</label>
+                <div class="item__hint"
+                    [class.show]="orderInfoForm.controls['service'].errors?.['required'] && orderInfoForm.controls['service'].touched">
+                    Choose an option
+                </div>
+            </div>
+            <div class="item__body">
+                <app-drop-down [options]="serviceOptions"
+                    [hasError]="orderInfoForm.controls['service'].invalid && orderInfoForm.controls['service'].touched"
+                    formControlName="service" (selectOption)="changeFormData()">
+                </app-drop-down>
+            </div>
+        </div>
+        <div class="order__item item">
+            <div class="item__info">
+                <label class="item__label">Master</label>
+                <div class="item__hint"
+                    [class.show]="orderInfoForm.controls['master'].errors?.['required'] && orderInfoForm.controls['master'].touched">
+                    Choose an option
+                </div>
+            </div>
+            <div class="item__body">
+                <app-drop-down [options]="serviceOptions"
+                    [hasError]="orderInfoForm.controls['master'].invalid && orderInfoForm.controls['master'].touched"
+                    formControlName="master" (selectOption)="changeFormData()"></app-drop-down>
+            </div>
+        </div>
+        <div class="order__item item">
+            <div class="item__info">
+                <label class="item__label">Date</label>
+                <div class="item__hint"
+                    [class.show]="orderInfoForm.controls['date'].invalid && orderInfoForm.controls['date'].touched">
+                    <div *ngIf="orderInfoForm.controls['date'].errors?.['required']">
+                        Enter the date
+                    </div>
+                    <div *ngIf="orderInfoForm.controls['date'].errors?.['pattern']">
+                        Invalid date format
+                    </div>
+                </div>
+            </div>
+            <div class="item__body">
+                <app-order-input [placeholder]="'Enter the date'" [maskData]="'d0.M0.0000'"
+                    [hasError]="orderInfoForm.controls['date'].invalid && orderInfoForm.controls['date'].touched"
+                    [dropSpecialCharacters]="false" formControlName="date" (dataChange)="changeFormData()">
+                </app-order-input>
+            </div>
+        </div>
+        <div class="order__item item">
+            <div class="item__info">
+                <label class="item__label">Time</label>
+                <div class="item__hint" [class.show]="orderInfoForm.controls['time'].invalid && orderInfoForm.controls['time'].touched">
+                    <div *ngIf="orderInfoForm.controls['time'].errors?.['required']">
+                        Enter the time
+                    </div>
+                    <div *ngIf="orderInfoForm.controls['time'].errors?.['pattern']">
+                        Invalid time format
+                    </div>
+                </div>
+            </div>
+            <div class="item__body">
+                <div class="item__container">
+                    <div class="item__subitem">
+                        <app-order-input [placeholder]="'Enter the time'" formControlName="time"
+                            [hasError]="orderInfoForm.controls['time'].invalid && orderInfoForm.controls['time'].touched"
+                            (dataChange)="changeFormData()" [maskData]="'Hh:m0'" [dropSpecialCharacters]="false">
+                        </app-order-input>
+                    </div>
+                    <div class="item__subitem">
+                        <app-order-input formControlName="endTime" [isDisabled]="true"
+                        ></app-order-input>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="order__item item">
+            <div class="item__info">
+                <label class="item__label">Price</label>
+                <div class="item__hint"></div>
+            </div>
+            <div class="item__body">
+                <div class="item__container">
+                    <div class="item__subitem">
+                        <app-order-input formControlName="price" (dataChange)="changeFormData()" [isDisabled]="true">
+                        </app-order-input>
+                    </div>
+                    <div class="item__subitem item__subitem_uppercase">
+                        <app-drop-down [options]="['MDL', 'USD', 'EUR']" formControlName="currency"
+                            (selectOption)="changeFormData()">
+                        </app-drop-down>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="order__buttons">
+            <div class="order__button">
+                <app-order-button (click)="onNext()" [disabled]="orderInfoForm.invalid && orderInfoForm.touched">Next
+                    step</app-order-button>
+            </div>
+        </div>
+    </form>
+</div>

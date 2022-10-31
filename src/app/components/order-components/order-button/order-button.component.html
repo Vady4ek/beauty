@@ -1,0 +1,11 @@
+<button class="button" [class.small]="small" [type]="type" [disabled]="disabled">
+    <ng-container *ngIf="arrow && !arrowRight">
+        <img class="button__icon button__icon_reverse" src="assets/icons/orderArrowNext.svg" alt="arrow">
+    </ng-container>
+    <span class="button__text">
+        <ng-content></ng-content>
+    </span>
+    <ng-container *ngIf="arrow && arrowRight">
+        <img class="button__icon" src="assets/icons/orderArrowNext.svg" alt="arrow">
+    </ng-container>
+</button>

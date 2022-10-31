@@ -1,16 +1,84 @@
-<form action="" [formGroup]="orderInfoForm">
-
-    <input formControlName="name" (input)="changeFormData()" type="text">
-    
-    <input formControlName="phone" (input)="changeFormData()" type="text">
-    
-    <input formControlName="email" (input)="changeFormData()" type="text">
-    
-    <input formControlName="comments" (input)="changeFormData()" type="text">
-
-</form>
-
-<button (click)="prev.emit()">Prev</button>
-
-<button (click)="next.emit()">Next</button>
-
+<div class="order__inner">
+    <form class="order__wrapper" [formGroup]="clientInfoForm">
+        <div class="order__item item">
+            <div class="item__info">
+                <label class="item__label">Name</label>
+                <div class="item__hint"
+                    [class.show]="clientInfoForm.controls['name'].invalid && clientInfoForm.controls['name'].touched">
+                    <div *ngIf="clientInfoForm.controls['name'].errors?.['required']">
+                        Enter the name
+                    </div>
+                    <div *ngIf="clientInfoForm.controls['name'].errors?.['pattern']">
+                        Enter a valid name
+                    </div>
+                </div>
+            </div>
+            <div class="item__body">
+                <app-order-input [placeholder]="'Enter your name'"
+                    [hasError]="clientInfoForm.controls['name'].invalid && clientInfoForm.controls['name'].touched"
+                    [dropSpecialCharacters]="false" formControlName="name" (dataChange)="changeFormData()">
+                </app-order-input>
+            </div>
+        </div>
+        <div class="order__item item">
+            <div class="item__info">
+                <label class="item__label">Phone</label>
+                <div class="item__hint"
+                    [class.show]="clientInfoForm.controls['phone'].invalid && clientInfoForm.controls['phone'].touched">
+                    <div
+                        *ngIf="clientInfoForm.controls['phone'].errors?.['required'] && clientInfoForm.controls['phone'].touched">
+                        Enter phone number
+                    </div>
+                </div>
+            </div>
+            <div class="item__body">
+                <app-order-input
+                    [hasError]="clientInfoForm.controls['phone'].invalid && clientInfoForm.controls['phone'].touched"
+                    [prefixData]="'+373'" [maskData]="'(00000000)'" [typedData]="true" [dropSpecialCharacters]="false"
+                    formControlName="phone" (dataChange)="changeFormData()">
+                </app-order-input>
+            </div>
+        </div>
+        <div class="order__item item">
+            <div class="item__info">
+                <label class="item__label">E-mail</label>
+                <div class="item__hint">
+                    <div
+                        [class.show]="clientInfoForm.controls['email'].invalid && clientInfoForm.controls['email'].touched">
+                        <div *ngIf="clientInfoForm.controls['email'].errors?.['required']">
+                            Enter the e-mail
+                        </div>
+                        <div *ngIf="clientInfoForm.controls['email'].errors?.['email']">
+                            Enter a valid e-mail
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item__body">
+                <app-order-input [placeholder]="'Enter e-mail address'"
+                    [hasError]="clientInfoForm.controls['email'].invalid && clientInfoForm.controls['email'].touched"
+                    [dropSpecialCharacters]="false" formControlName="email" (dataChange)="changeFormData()">
+                </app-order-input>
+            </div>
+        </div>
+        <div class="order__item item">
+            <div class="item__info">
+                <label class="item__label">Comments</label>
+                <div class="item__hint"></div>
+            </div>
+            <div class="item__body">
+                <app-order-input [placeholder]="'Add some comments'" [dropSpecialCharacters]="false"
+                    formControlName="comments" (dataChange)="changeFormData()">
+                </app-order-input>
+            </div>
+        </div>
+        <div class="order__buttons">
+            <div class="order__button">
+                <app-order-button (click)="prev.emit()" [small]="true" [arrowRight]="false">Back</app-order-button>
+            </div>
+            <div class="order__button">
+                <app-order-button (click)="onNext()" [disabled]="clientInfoForm.invalid && clientInfoForm.touched">Next step</app-order-button>
+            </div>
+        </div>
+    </form>
+</div>

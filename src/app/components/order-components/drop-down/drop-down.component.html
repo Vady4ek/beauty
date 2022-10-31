@@ -1,0 +1,25 @@
+<div class="drop-down" appClickOutside (clickOutside)="onClickOutside()">
+    <button 
+      class="drop-down__body" 
+      [class.open]="isOpen"
+      [class.error]="hasError"
+      [disabled]="isDisabled"
+      (click)="isOpen ? close() : open()"
+      type="button"
+    >
+      <ng-container *ngIf="value; then templateValue else templatePlaceholder"></ng-container>
+      <ng-template #templateValue>{{ value }}</ng-template>
+      <ng-template #templatePlaceholder>{{ placeholder }}</ng-template>
+    </button>
+    <ul class="drop-down__options" [class.open]="isOpen">
+      <li 
+        class="drop-down__option" 
+        *ngFor="let templateOption of options; let index = index"
+        [class.active]="optionIndex >= 0 && index === optionIndex"
+        (click)="select(index)"
+        (mouseover)="focus(index)"
+      >
+        {{ templateOption }}
+      </li>
+    </ul>
+  </div>

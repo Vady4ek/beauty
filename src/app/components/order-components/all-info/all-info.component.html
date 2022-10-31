@@ -1,3 +1,48 @@
-<button (click)="prev.emit()">Prev</button>
-
-<button (click)="submit.emit()">Submit</button>
+<div class="finish">
+    <div class="finish__container">
+        <div class="finish__info">
+            <div class="finish__row">
+                <div class="finish__name">Service</div>
+                <div class="finish__value">{{ orderInfo['service'] }}</div>
+            </div>
+            <div class="finish__row">
+                <div class="finish__name">Master</div>
+                <div class="finish__value">{{ orderInfo['master'] }}</div>
+            </div>
+            <div class="finish__row">
+                <div class="finish__name">Date/Time</div>
+                <div class="finish__value">{{ orderInfo['date'] }} - {{ orderInfo['time'] }}</div>
+            </div>
+            <div class="finish__row">
+                <div class="finish__name">Price</div>
+                <div class="finish__value">{{ orderInfo['price'] }} {{ orderInfo['currency'] }}</div>
+            </div>
+            <div class="finish__row">
+                <div class="finish__name">Client name</div>
+                <div class="finish__value">{{ clientInfo['name'] }}</div>
+            </div>
+            <div class="finish__row">
+                <div class="finish__name">Client phone</div>
+                <div class="finish__value">{{ clientInfo['phone'] }}</div>
+            </div>
+            <div class="finish__row">
+                <div class="finish__name">Client email</div>
+                <div class="finish__value">{{ clientInfo['email'] }}</div>
+            </div>
+            <div class="finish__row">
+                <div class="finish__name">Comments</div>
+                <ng-container *ngIf="clientInfo['comments']; then coment else placeholder"></ng-container>
+                <ng-template #coment>
+                    <div class="finish__value">{{ clientInfo['comments'] }}</div>
+                </ng-template>
+                <ng-template #placeholder>
+                    <div class="finish__value">Add some comments here. This field is optional</div>
+                </ng-template>
+            </div>
+        </div>
+        <div class="finish__buttons">
+            <app-order-button (click)="prev.emit()" [small]="true" [arrowRight]="false">Back</app-order-button>
+            <app-order-button (click)="submit.emit()" [arrow]="false">Create order</app-order-button>
+        </div>
+    </div>
+</div>
