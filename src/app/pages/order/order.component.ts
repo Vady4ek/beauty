@@ -30,7 +30,7 @@ import { ModalComponent } from 'src/app/components/layout/modal/modal.component'
 export class OrderComponent implements OnInit {
   public modal = false;
 
-  public step = 2;
+  public step = 1;
 
   constructor(
     private orderService: OrderService
