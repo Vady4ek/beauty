@@ -6,7 +6,8 @@
                 <div class="item__hint"></div>
             </div>
             <div class="item__body">
-                <app-drop-down [options]="serviceOptions" formControlName="category" (selectOption)="changeFormData()">
+                <app-drop-down [options]="categoryOptions" formControlName="category"
+                    (selectOption)="changeCategory($event)">
                 </app-drop-down>
             </div>
         </div>
@@ -21,7 +22,7 @@
             <div class="item__body">
                 <app-drop-down [options]="serviceOptions"
                     [hasError]="orderInfoForm.controls['service'].invalid && orderInfoForm.controls['service'].touched"
-                    formControlName="service" (selectOption)="changeFormData(); setPrice()">
+                    formControlName="service" (selectOption)="setPrice($event); changeMasters($event)">
                 </app-drop-down>
             </div>
         </div>
@@ -34,7 +35,7 @@
                 </div>
             </div>
             <div class="item__body">
-                <app-drop-down [options]="serviceOptions"
+                <app-drop-down [options]="masterOptions"
                     [hasError]="orderInfoForm.controls['master'].invalid && orderInfoForm.controls['master'].touched"
                     formControlName="master" (selectOption)="changeFormData()"></app-drop-down>
             </div>
@@ -62,7 +63,8 @@
         <div class="order__item item">
             <div class="item__info">
                 <label class="item__label">Time</label>
-                <div class="item__hint" [class.show]="orderInfoForm.controls['time'].invalid && orderInfoForm.controls['time'].touched">
+                <div class="item__hint"
+                    [class.show]="orderInfoForm.controls['time'].invalid && orderInfoForm.controls['time'].touched">
                     <div *ngIf="orderInfoForm.controls['time'].errors?.['required']">
                         Enter the time
                     </div>
@@ -76,12 +78,12 @@
                     <div class="item__subitem">
                         <app-order-input [placeholder]="'Enter the time'" formControlName="time"
                             [hasError]="orderInfoForm.controls['time'].invalid && orderInfoForm.controls['time'].touched"
-                            (dataChange)="changeFormData(); setTime()" [maskData]="'Hh:m0'" [dropSpecialCharacters]="false">
+                            (dataChange)="changeFormData(); setTime()" [maskData]="'Hh:m0'"
+                            [dropSpecialCharacters]="false">
                         </app-order-input>
                     </div>
                     <div class="item__subitem">
-                        <app-order-input formControlName="endTime" [isDisabled]="true"
-                        ></app-order-input>
+                        <app-order-input formControlName="endTime" [isDisabled]="true"></app-order-input>
                     </div>
                 </div>
             </div>
@@ -98,8 +100,7 @@
                         </app-order-input>
                     </div>
                     <div class="item__subitem item__subitem_uppercase">
-                        <app-drop-down [options]="['MDL', 'USD', 'EUR']" formControlName="currency"
-                            (selectOption)="changeFormData()">
+                        <app-drop-down [options]="currencyOptions" formControlName="currency" (selectOption)="setMultiplier($event)">
                         </app-drop-down>
                     </div>
                 </div>

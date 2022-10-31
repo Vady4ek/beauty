@@ -32,7 +32,7 @@
     },
     {
       "master_id": 1,
-      "service_id": 3
+      "service_id": 2
     },
     {
       "master_id": 3,
@@ -40,35 +40,35 @@
     },
     {
       "master_id": 6,
-      "service_id": 4
+      "service_id": 3
     },
     {
       "master_id": 10,
-      "service_id": 5
+      "service_id": 4
     },
     {
       "master_id": 5,
-      "service_id": 6
+      "service_id": 4
     },
     {
       "master_id": 7,
-      "service_id": 7
+      "service_id": 4
     },
     {
       "master_id": 9,
-      "service_id": 8
+      "service_id": 3
     },
     {
       "master_id": 8,
-      "service_id": 9
+      "service_id": 2
     },
     {
       "master_id": 4,
-      "service_id": 10
+      "service_id": 1
     },
     {
       "master_id": 11,
-      "service_id": 11
+      "service_id": 2
     }
   ],
   "services": [
@@ -78,47 +78,53 @@
       "alt": "hair",
       "price": 350,
       "service_id": 1,
-      "category_id": 1
+      "category_id": 1,
+      "duration": 1.5
     },
     {
-      "name": "Nails",
+      "name": "Hair man",
       "imageUrl": "assets/images/nails.png",
       "alt": "nails",
       "price": 250,
       "service_id": 2,
-      "category_id": 2
+      "category_id": 1,
+      "duration": 0.5
     },
     {
-      "name": "Barber",
+      "name": "Nails growth",
       "imageUrl": "assets/images/barber.png",
       "alt": "barber",
       "price": 1200,
       "service_id": 3,
-      "category_id": 3
+      "category_id": 2,
+      "duration": 1.1
     },
     {
-      "name": "Skin masage",
+      "name": "Nails paint",
       "imageUrl": "assets/images/nails.png",
       "alt": "nails",
       "price": 50,
       "service_id": 4,
-      "category_id": 4
+      "category_id": 2,
+      "duration": 1.2
     },
     {
-      "name": "Hair dye",
+      "name": "Nails",
       "imageUrl": "assets/images/barber.png",
       "alt": "barber",
       "price": 105,
       "service_id": 5,
-      "category_id": 1
+      "category_id": 2,
+      "duration": 1.5
     },
     {
-      "name": "Nails growth",
+      "name": "Beard",
       "imageUrl": "assets/images/nails.png",
       "alt": "nails",
       "price": 120,
       "service_id": 6,
-      "category_id": 2
+      "category_id": 3,
+      "duration": 1
     },
     {
       "name": "Beard shaving",
@@ -126,39 +132,44 @@
       "alt": "nails",
       "price": 340,
       "service_id": 7,
-      "category_id": 3
+      "category_id": 3,
+      "duration": 0.1
     },
     {
-      "name": "Skin",
+      "name": "Beard styling",
       "imageUrl": "assets/images/barber.png",
       "alt": "barber",
       "price": 180,
       "service_id": 8,
-      "category_id": 4
+      "category_id": 3,
+      "duration": 0.2
     },
     {
-      "name": "Hair man",
+      "name": "Beard wash",
       "imageUrl": "assets/images/barber.png",
       "alt": "barber",
       "price": 140,
       "service_id": 9,
-      "category_id": 1
+      "category_id": 3,
+      "duration": 2
     },
     {
-      "name": "Nails paint",
+      "name": "Skin",
       "imageUrl": "assets/images/nails.png",
       "alt": "nails",
       "price": 60,
       "service_id": 10,
-      "category_id": 2
+      "category_id": 4,
+      "duration": 1.5
     },
     {
-      "name": "Beard",
+      "name": "Skin masage",
       "imageUrl": "assets/images/barber.png",
       "alt": "barber",
       "price": 200,
       "service_id": 11,
-      "category_id": 3
+      "category_id": 4,
+      "duration": 0.5
     }
   ],
   "products": [
@@ -231,72 +242,109 @@
   ],
   "masters": [
     {
-      "name": "Ana Maria",
+      "name": "Master hair man 1",
       "imageUrl": "assets/images/hair.png",
       "alt": "hair",
       "master_id": 1
     },
     {
-      "name": "Ion Creanga",
+      "name": "Master hair man 2",
       "imageUrl": "assets/images/nails.png",
       "alt": "nails",
       "master_id": 2
     },
     {
-      "name": "Mihai Eminescu",
+      "name": "Master nails growth 1",
       "imageUrl": "assets/images/barber.png",
       "alt": "barber",
       "master_id": 3
     },
     {
-      "name": "Vasile Alecsandri",
+      "name": "Master hair woman 1",
       "imageUrl": "assets/images/nails.png",
       "alt": "nails",
       "master_id": 4
     },
     {
-      "name": "Master hair woman 1",
+      "name": "Master hair woman & nails paint",
       "imageUrl": "assets/images/barber.png",
       "alt": "barber",
       "master_id": 5
     },
     {
-      "name": "Master",
+      "name": "Master nails growth 2",
       "imageUrl": "assets/images/nails.png",
       "alt": "nails",
       "master_id": 6
     },
     {
-      "name": "Master",
+      "name": "Master nails paint 1",
       "imageUrl": "assets/images/nails.png",
       "alt": "nails",
       "master_id": 7
     },
     {
-      "name": "Master",
+      "name": "Master hair man 3",
       "imageUrl": "assets/images/barber.png",
       "alt": "barber",
       "master_id": 8
     },
     {
-      "name": "Master",
+      "name": "Master nails growth 3",
       "imageUrl": "assets/images/barber.png",
       "alt": "barber",
       "master_id": 9
     },
     {
-      "name": "Master",
+      "name": "Master nails paint 2",
       "imageUrl": "assets/images/nails.png",
       "alt": "nails",
       "master_id": 10
     },
     {
-      "name": "Master hair woman 2",
+      "name": "Master hair woman & nails",
       "imageUrl": "assets/images/barber.png",
       "alt": "barber",
       "master_id": 11
     }
   ],
+  "currency": [
+    {
+      "id": 1,
+      "name": "USD",
+      "multiplier": 19.5
+    },
+    {
+      "id": 2,
+      "name": "MDL",
+      "multiplier": 1
+    },
+    {
+      "id": 3,
+      "name": "EUR",
+      "multiplier": 18.5
+    },
+    {
+      "id": 4,
+      "name": "RON",
+      "multiplier": 3.5
+    }
+  ],
   "orders": [
+    {
+      "category": null,
+      "service": "Hair woman",
+      "master": "Nails",
+      "date": "12.31.2332",
+      "time": "12:33",
+      "endTime": "15:00",
+      "price": "100",
+      "currency": "MDL",
+      "name": "vad",
+      "phone": "+373(12312323)",
+      "email": "wer@wsdf",
+      "comments": "123",
+      "id": 1
+    }
   ]
 }

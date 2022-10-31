@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, ElementRef, EventEmitter, forwardRef 
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ClickOutsideDirective } from 'src/app/directives/click-outside.directive';
+import { Option } from 'src/ts/interfaces';
 
 @Component({
   selector: 'app-drop-down',
@@ -23,9 +24,9 @@ import { ClickOutsideDirective } from 'src/app/directives/click-outside.directiv
   ]
 })
 export class DropDownComponent implements OnInit, ControlValueAccessor {
-  @Output() selectOption = new EventEmitter<void>();
+  @Output() selectOption = new EventEmitter<number>();
 
-  @Input() options: string[] = [];
+  @Input() options: Option[] = [];
   @Input() hasError!: boolean;
   @Input() placeholder = 'Select from list';
 
@@ -36,6 +37,8 @@ export class DropDownComponent implements OnInit, ControlValueAccessor {
   isOpen = false;
 
   value = '';
+  id!: number;
+
   optionIndex = -1;
 
   constructor(private el: ElementRef) { }
@@ -86,15 +89,15 @@ export class DropDownComponent implements OnInit, ControlValueAccessor {
   }
 
   select(index: number) {
-    this.value = this.options[index];
+    this.value = this.options[index].value;
 
-    this.changed(this.options[index]);
+    this.changed(this.options[index].value);
 
     this.focus(index);
 
     this.close();
 
-    this.selectOption.emit();
+    this.selectOption.emit(this.options[index].id);
   }
 
   onKeyUp(e: KeyboardEvent) {
