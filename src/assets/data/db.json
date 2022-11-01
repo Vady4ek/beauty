@@ -331,20 +331,5 @@
     }
   ],
   "orders": [
-    {
-      "category": null,
-      "service": "Hair woman",
-      "master": "Nails",
-      "date": "12.31.2332",
-      "time": "12:33",
-      "endTime": "15:00",
-      "price": "100",
-      "currency": "MDL",
-      "name": "vad",
-      "phone": "+373(12312323)",
-      "email": "wer@wsdf",
-      "comments": "123",
-      "id": 1
-    }
   ]
 }

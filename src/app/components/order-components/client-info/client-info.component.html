@@ -25,16 +25,18 @@
                 <label class="item__label">Phone</label>
                 <div class="item__hint"
                     [class.show]="clientInfoForm.controls['phone'].invalid && clientInfoForm.controls['phone'].touched">
-                    <div
-                        *ngIf="clientInfoForm.controls['phone'].errors?.['required'] && clientInfoForm.controls['phone'].touched">
+                    <div *ngIf="clientInfoForm.controls['phone'].errors?.['required']">
                         Enter phone number
+                    </div>
+                    <div *ngIf="clientInfoForm.controls['phone'].errors?.['pattern']">
+                        Enter a valid phone number
                     </div>
                 </div>
             </div>
             <div class="item__body">
                 <app-order-input
                     [hasError]="clientInfoForm.controls['phone'].invalid && clientInfoForm.controls['phone'].touched"
-                    [prefixData]="'+373'" [maskData]="'(00000000)'" [typedData]="true" [dropSpecialCharacters]="false"
+                    [prefixData]="'+373'" [maskData]="'(00000000)'" [typedData]="true" [dropSpecialCharacters]="true"
                     formControlName="phone" (dataChange)="changeFormData()">
                 </app-order-input>
             </div>
@@ -42,15 +44,12 @@
         <div class="order__item item">
             <div class="item__info">
                 <label class="item__label">E-mail</label>
-                <div class="item__hint">
-                    <div
-                        [class.show]="clientInfoForm.controls['email'].invalid && clientInfoForm.controls['email'].touched">
-                        <div *ngIf="clientInfoForm.controls['email'].errors?.['required']">
-                            Enter the e-mail
-                        </div>
-                        <div *ngIf="clientInfoForm.controls['email'].errors?.['email']">
-                            Enter a valid e-mail
-                        </div>
+                <div class="item__hint" [class.show]="clientInfoForm.controls['email'].invalid && clientInfoForm.controls['email'].touched">
+                    <div *ngIf="clientInfoForm.controls['email'].errors?.['required']">
+                        Enter the e-mail
+                    </div>
+                    <div *ngIf="clientInfoForm.controls['email'].errors?.['email']">
+                        Enter a valid e-mail
                     </div>
                 </div>
             </div>

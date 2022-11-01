@@ -24,8 +24,8 @@ export class ClientInfoComponent implements OnInit {
   @Output() prev: EventEmitter<void> = new EventEmitter(); 
 
   public clientInfoForm: FormGroup = this.formBuilder.group({
-    name: [null, [Validators.required, Validators.pattern('^[A-Za-z]{3,10}$')]],
-    phone: [null, [Validators.required]],
+    name: [null, [Validators.required, Validators.pattern('^\\w{3,10}$')]],
+    phone: [null, [Validators.required, Validators.pattern('^\\d{8}$')]],
     email: [null, [Validators.required, Validators.email]],
     comments: [null],
   });

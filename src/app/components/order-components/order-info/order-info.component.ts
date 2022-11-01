@@ -40,12 +40,14 @@ export class OrderInfoComponent implements OnInit {
     category: [],
     service: [null, Validators.required],
     master: [null, Validators.required],
-    date: [null, Validators.required],
-    time: [null, Validators.required],
+    date: [null, [Validators.required, Validators.pattern('^\\d{2}\.\\d{2}\.\\d{4}$')]],
+    time: [null, [Validators.required, Validators.pattern('^\\d{2}\.\\d{2}$')]],
     endTime: [],
     price: [null],
     currency: [null, Validators.required],
   });
+
+  public currentPrice!: number;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -87,8 +89,6 @@ export class OrderInfoComponent implements OnInit {
           const option: Option = { id: currency.id, value: currency.name };
           this.currencyOptions.push(option);
         });
-
-        console.log(this.currencyOptions);
       },
       error: (e) => console.error(e)
     });
@@ -110,18 +110,21 @@ export class OrderInfoComponent implements OnInit {
   setPrice(id: number) {
     this.changeFormData();
 
-
     this.services.urlById = id;
 
     this.services.serviceById.subscribe({
       next: (n) => {
-        this.orderInfoForm.patchValue({ 'price': n[0].price.toFixed(2) })
+        this.orderInfoForm.patchValue({ 'price': n[0].price.toFixed(2), 'currency': 'MDL' });
+        this.currentPrice = n[0].price;
       },
       error: (e) => console.error(e)
     });
   }
 
   setTime() {
+    this.changeFormData();
+
+    
     this.orderInfoForm.patchValue({ 'endTime': '15:00' })
   }
 
@@ -166,14 +169,14 @@ export class OrderInfoComponent implements OnInit {
     })
   }
 
-  setMultiplier(id: number) {
+  convertCurrency(id: number) {
 
     this.currencies.urlById = id;
 
     this.currencies.currencyById.subscribe({
       next: (n) => { 
-        const newPrice  = (this.orderInfoForm.controls['price'].value / n[0].multiplier).toFixed(2);
-        this.orderInfoForm.patchValue({ 'price': newPrice}) 
+        const newPrice  = (this.currentPrice / n[0].multiplier).toFixed(2);
+        this.orderInfoForm.patchValue({ 'price': newPrice}); 
       },
       error: (e) => console.error()
     });
