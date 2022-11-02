@@ -47,8 +47,6 @@ export class OrderInfoComponent implements OnInit {
     currency: [null, Validators.required],
   });
 
-  public currentPrice!: number;
-
   constructor(
     private formBuilder: FormBuilder,
     private orderService: OrderService,
@@ -115,17 +113,45 @@ export class OrderInfoComponent implements OnInit {
     this.services.serviceById.subscribe({
       next: (n) => {
         this.orderInfoForm.patchValue({ 'price': n[0].price.toFixed(2), 'currency': 'MDL' });
-        this.currentPrice = n[0].price;
+        localStorage.setItem('price', n[0].price.toString());
+        localStorage.setItem('duration', n[0].duration.toString());
       },
       error: (e) => console.error(e)
     });
   }
 
-  setTime() {
+  setTime(time: string) {
     this.changeFormData();
 
-    
-    this.orderInfoForm.patchValue({ 'endTime': '15:00' })
+    const timeArr =  time.split(':');
+
+    const minutes = Number(timeArr[0]) * 60 + Number(timeArr[1]);
+
+    const duration = Number(localStorage.getItem('duration')) * 60;
+
+    const newTimeMinutes = minutes + duration;
+
+    const newHours = Number((newTimeMinutes / 60).toFixed(0));
+    const newMinutes = newTimeMinutes % 60;
+
+    let stringNewHours: string;
+    let stringNewMinutes: string;
+
+    if(Number(newHours) < 10) {
+      stringNewHours = `0${newHours - 1}`;
+    } else {
+      stringNewHours = newHours.toString();
+    }
+
+    if(newMinutes < 10) {
+      stringNewMinutes = `0${newMinutes}`;
+    } else {
+      stringNewMinutes = newMinutes.toString();
+    }
+
+    const newTime = `${stringNewHours}:${stringNewMinutes}`;
+
+    this.orderInfoForm.patchValue({ 'endTime': newTime })
   }
 
   changeCategory(id: number) {
@@ -175,8 +201,8 @@ export class OrderInfoComponent implements OnInit {
 
     this.currencies.currencyById.subscribe({
       next: (n) => { 
-        const newPrice  = (this.currentPrice / n[0].multiplier).toFixed(2);
-        this.orderInfoForm.patchValue({ 'price': newPrice}); 
+        const newPrice  = (Number(localStorage.getItem('price')) / n[0].multiplier).toFixed(2);
+        this.orderInfoForm.patchValue({ 'price': newPrice});
       },
       error: (e) => console.error()
     });

@@ -8,21 +8,6 @@ import { ClientInfo, OrderForm, OrderInfo } from 'src/ts/interfaces/orderForm';
 })
 export class OrderService {
 
-  private _orderForm: OrderForm = {
-    category: null,
-    service: null,
-    master: null,
-    date: null,
-    time: null,
-    endTime: null,
-    price: null,
-    currency: 'MDL',
-    name: null,
-    phone: null,
-    email: null,
-    comments: null,
-  }
-
   private _orderInfo: OrderInfo = {
     category: null,
     service: null,
@@ -68,7 +53,7 @@ export class OrderService {
   }
 
   get submit(): Observable<any> {
-    const data = {
+    const data: OrderForm = {
       ...this._orderInfo,
       ...this._clientInfo
     };

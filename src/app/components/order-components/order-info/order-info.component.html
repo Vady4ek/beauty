@@ -78,7 +78,7 @@
                     <div class="item__subitem">
                         <app-order-input [placeholder]="'Enter the time'" formControlName="time"
                             [hasError]="orderInfoForm.controls['time'].invalid && orderInfoForm.controls['time'].touched"
-                            (dataChange)="orderInfoForm.controls['time'].valid ? setTime() : null" [maskData]="'Hh:m0'"
+                            (dataChange)="orderInfoForm.controls['time'].valid ? setTime($event) : null" [maskData]="'Hh:m0'"
                             [dropSpecialCharacters]="false">
                         </app-order-input>
                     </div>

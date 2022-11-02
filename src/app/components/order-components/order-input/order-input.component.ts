@@ -18,7 +18,7 @@ import { NgxMaskModule } from 'ngx-mask';
   styleUrls: ['./order-input.component.scss']
 })
 export class OrderInputComponent implements OnInit, ControlValueAccessor {
-  @Output() dataChange: EventEmitter<void> = new EventEmitter();
+  @Output() dataChange: EventEmitter<string> = new EventEmitter();
 
   @Input() type = 'text';
   @Input() placeholder!: string;
@@ -75,6 +75,6 @@ export class OrderInputComponent implements OnInit, ControlValueAccessor {
 
   onInput() {
     this.changed(this.value);
-    this.dataChange.emit();
+    this.dataChange.emit(this.value);
   }
 }
