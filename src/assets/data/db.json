@@ -331,5 +331,20 @@
     }
   ],
   "orders": [
+    {
+      "category": "hair",
+      "service": "Hair woman",
+      "master": "Master hair woman & nails",
+      "date": "12.31.2312",
+      "time": "12:31",
+      "endTime": "14:01",
+      "price": "350.00",
+      "currency": "MDL",
+      "name": "Vadim",
+      "phone": "23423423",
+      "email": "some@gmail.com",
+      "comments": "Some text",
+      "id": 1
+    }
   ]
 }
